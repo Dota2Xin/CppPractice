@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-void convolution(float** baseImage, float** kernel) {
+void convolution(int** baseImage, float** kernel) {
     int baseRows, baseColumns, kernelRows, kernelColumns;
     if (sizeof(baseImage)==0 or sizeof(kernel)==0) {
         cout << "Image or Kernel is Empty \n";
@@ -18,9 +19,9 @@ void convolution(float** baseImage, float** kernel) {
         return;
     }
 
-    float** expandedImage= new float*[baseRows+2*kernelRows];
+    int** expandedImage= new int*[baseRows+2*kernelRows];
     for (int i=0; i<baseRows+2*kernelRows; i++) {
-        expandedImage[i]= new float[baseColumns+2*kernelColumns];
+        expandedImage[i]= new int[baseColumns+2*kernelColumns];
     }
 
     for(int i=0; i<baseRows+2*kernelRows; i++) {
@@ -43,7 +44,13 @@ void convolution(float** baseImage, float** kernel) {
                     convolvedValue+= kernel[k][l]*expandedImage[i+(kernelCenterRow-k)][j+(kernelCenterColumn-l)];
                 }
             }
-            baseImage[i-kernelRows][j=kernelColumns]=convolvedValue;
+            if(convolvedValue>255) {
+                convolvedValue=255;
+            }
+            if(convolvedValue<0) {
+                convolvedValue=0;
+            }
+            baseImage[i-kernelRows][j-kernelColumns]=static_cast<int>(round(convolvedValue));
         }
     }
     

@@ -21,3 +21,20 @@ class pngRaw {
             body=bodyArg;
         }
 };
+
+
+class png {
+    public:
+        int height;
+        int width;
+        int** red;
+        int** blue;
+        int** green;
+        png(int heightArg, int widthArg, int** redArg, int** blueArg, int** greenArg) {
+            height=heightArg;
+            width=widthArg;
+            red=redArg;
+            blue=blueArg;
+            green=greenArg;
+        }
+};
