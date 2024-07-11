@@ -4,7 +4,7 @@ using namespace std;
 
 void convolution(int** baseImage, float** kernel) {
     int baseRows, baseColumns, kernelRows, kernelColumns;
-    if (sizeof(baseImage)==0 or sizeof(kernel)==0) {
+    if (sizeof(baseImage)==0 || sizeof(kernel)==0) {
         cout << "Image or Kernel is Empty \n";
         return;
     }
@@ -14,7 +14,7 @@ void convolution(int** baseImage, float** kernel) {
     kernelRows=sizeof(kernel)/sizeof(kernel[0]);
     kernelColumns=sizeof(kernel[0])/sizeof(kernel[0][0]);
 
-    if (kernelRows%2==0 or kernelColumns%2==0) {
+    if (kernelRows%2==0 || kernelColumns%2==0) {
         cout <<"Erorr: Kernel should have odd number of rows/columns";
         return;
     }
@@ -26,7 +26,7 @@ void convolution(int** baseImage, float** kernel) {
 
     for(int i=0; i<baseRows+2*kernelRows; i++) {
         for(int j=0; j<baseRows+2*kernelRows; j++) {
-            if (i>=kernelRows and i<baseRows+kernelRows and j>=kernelRows and j<baseRows+kernelRows) {
+            if (i>=kernelRows && i<baseRows+kernelRows && j>=kernelRows && j<baseRows+kernelRows) {
                 expandedImage[i][j]=baseImage[i][j];
             }
             else {
@@ -54,5 +54,9 @@ void convolution(int** baseImage, float** kernel) {
         }
     }
     
+    for (int i=0; i<sizeof(expandedImage)/sizeof(expandedImage[0]); i++) {
+        delete[] expandedImage[i];
+    }
+    delete[] expandedImage;
     return;
 }
