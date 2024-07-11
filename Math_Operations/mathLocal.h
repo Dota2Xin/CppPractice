@@ -8,4 +8,6 @@ void testFunc(float* boundaries, float (*f)(float* arguments), int* resolutions,
 
 float xSquared(float* arguments);
 
+float xPlusy(float* arguments);
+
 #endif

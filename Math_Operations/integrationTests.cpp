@@ -7,6 +7,10 @@ float xSquared(float* arguments) {
     return arguments[0]*arguments[0];
 }
 
+float xPlusy(float* arguments) {
+    return arguments[0]+arguments[1];
+}
+
 void testFunc(float* boundaries, float (*f)(float* arguments), int* resolutions,int resolutionLength, std::string funcLabel) {
     float integrationValue=integral(boundaries, f, resolutions, resolutionLength);
     cout <<"Resolution Length=" <<resolutionLength <<"\n";
@@ -14,6 +18,6 @@ void testFunc(float* boundaries, float (*f)(float* arguments), int* resolutions,
     for(int i=0; i<resolutionLength; i++) {
         cout << "x" << i << "=(" << boundaries[2*i] << ", " << boundaries[2*i+1] <<")" << " Resolution=" << resolutions[i] <<"\n" ;
     }
-    cout <<"Integration Result=" << integrationValue;
+    cout <<"Integration Result=" << integrationValue << "\n\n";
     return;
 }
