@@ -7,12 +7,11 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "runTests.cpp",
+                "integration.cpp",
+                "integrationTests.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-ID:\\programFiles\\OpenCV\\opencv\\build\\include",
-                "-LD:\\programFiles\\OpenCV\\opencv\\build\\x64\\vc16\\lib",
-                "-lopencv_world4100"
             ],
             "options": {
                 "cwd": "${fileDirname}"

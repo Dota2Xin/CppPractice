@@ -3,8 +3,7 @@
     {
       "name": "windows-clang-x64",
       "includePath": [
-        "${workspaceFolder}/**",
-        "D:\\programFiles\\OpenCV\\opencv\\build\\include"
+        "${workspaceFolder}/**"
       ],
       "defines": [
         "_DEBUG",
