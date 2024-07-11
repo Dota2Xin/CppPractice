@@ -19,5 +19,6 @@ void testFunc(float* boundaries, float (*f)(float* arguments), int* resolutions,
         cout << "x" << i << "=(" << boundaries[2*i] << ", " << boundaries[2*i+1] <<")" << " Resolution=" << resolutions[i] <<"\n" ;
     }
     cout <<"Integration Result=" << integrationValue << "\n\n";
+
     return;
 }
